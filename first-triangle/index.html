@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>WebGL Example1</title>
+        <style>
+            * { margin: 0;padding: 0;box-sizing: content-box;text-decoration: none; list-style: none;}
+            #canvas{
+                border: 1px solid black;
+                width: 500px;
+                height: 500px;
+                margin: 100px auto;
+                display: block;
+            }
+            .container{
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+            <canvas id="canvas" width="500" height="500"></canvas>
+        </div>
+
+    <script id="vertex-shader" type="vertex-shader">
+        attribute vec2 position;
+        attribute vec4 color;
+
+        varying vec4 v_color;
+        void main(void){
+            gl_Position = vec4(position, 0.0, 1.0);
+            v_color = color;
+        }
+    </script>
+    <script id="fragment-shader" type="fragment-shader">
+        precision mediump float;
+        varying vec4 v_color;
+        void main(void){
+            gl_FragColor = v_color;
+        }
+    </script>
+    <script src="./main.js"></script>
+    </body>
+</html>
