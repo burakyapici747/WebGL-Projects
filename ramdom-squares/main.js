@@ -43,6 +43,7 @@ function main(){
     let normalize = false;
     let stride = 0;
     let offset = 0;
+
     gl.vertexAttribPointer(
         positionAttributeLocation,
         size,
@@ -58,13 +59,13 @@ function main(){
 
     setInterval(function(){
         draw(colorUniformLocation, indices);
-    },1);
+    },1000);
 }
 
 function draw(colorUniformLocation, indices){
     gl.clearColor(0.73, 0.85, 0.8, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
-    for(let i = 1; i <= 5000; i++){
+    for(let i = 1; i <= 50; i++){
         let randomSize = randomInt(10,50);
         createSquare(gl, randomInt(0, 500 - randomSize), randomInt(0, 500 - randomSize), randomSize, randomSize);
 

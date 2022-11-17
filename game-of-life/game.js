@@ -1,8 +1,8 @@
 let canvas = document.getElementById("canvas");
 let gl = canvas.getContext("webgl");
 
-let canvasWidth = canvas.getContext.width;
-let canvasHeight = canvas.getContext.height;
+let canvasWidth = canvas.clientWidth;
+let canvasHeight = canvas.clientHeight;
 
 let vertexShaderSource = document.getElementById("vertex-shader").textContent;
 let fragmentShaderSource = document.getElementById("fragment-shader").textContent;
