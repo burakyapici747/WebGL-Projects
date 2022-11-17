@@ -9,8 +9,7 @@ let fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
 
 let program = createProgram(gl, vertexShader, fragmentShader);
 
-let positionsLocation = gl.getAttribLocation(program, 'position');
-let colorLocation = gl.getAttribLocation(program, 'color');
+let positionsLocation = gl.getAttribLocation(program, 'position');;
 
 let vertexPositions = new Float32Array([
     0.0, 0.5,
@@ -28,10 +27,6 @@ let vertexColors = new Uint8Array([
     0, 0, 255, 255,
 ]);
 
-let colorBuffer = gl.createBuffer();
-gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
-gl.bufferData(gl.ARRAY_BUFFER, vertexColors, gl.STATIC_DRAW);
-
 gl.enableVertexAttribArray(positionsLocation);
 gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 gl.vertexAttribPointer(
@@ -39,17 +34,6 @@ gl.vertexAttribPointer(
     2,
     gl.FLOAT,
     false,
-    0,
-    0,
-);
-
-gl.enableVertexAttribArray(colorLocation);
-gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
-gl.vertexAttribPointer(
-    colorLocation,
-    4,
-    gl.UNSIGNED_BYTE,
-    true,
     0,
     0,
 );
